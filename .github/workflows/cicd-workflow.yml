@@ -1,1 +1,32 @@
 
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - 'v*.*' # 替换为你的分支命名模式
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Setup Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.16
+
+      - name: Security Scan
+        run: |
+          # 添加代码扫描步骤
+
+      - name: Send Slack Notification
+        run: |
+          # 添加发送Slack通知的步骤
+
+      - name: Build and Push Docker Image
+        run: |
+          # 添加构建、推送和签名Docker镜像的步骤
